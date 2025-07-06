@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List:Joba</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      background: #fff;
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-left: 5px solid blue;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li.completed {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: blue;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    button:hover {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Joba's to do list</h1>
+  <ul id="todo-list"></ul>
+
+  <script>
+    const tasks = [
+      "Wash the dishes",
+      "Sweep the floors",
+      "Mop the floors",
+      "Do the laundry"
+    ];
+
+    const list = document.getElementById("todo-list");
+
+    tasks.forEach(task => {
+      const li = document.createElement("li");
+      li.textContent = task;
+
+      const doneButton = document.createElement("button");
+      doneButton.textContent = "Done";
+      doneButton.onclick = () => {
+        li.classList.toggle("completed");
+      };
+
+      li.appendChild(doneButton);
+      list.appendChild(li);
+    });
+  </script>
+
+</body>
+</html>
